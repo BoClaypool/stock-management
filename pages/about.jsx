@@ -31,18 +31,16 @@ export default function About() {
             mb={12}
             letterSpacing="tight"
           >
-            Sobre este projeto 🚀
+            About this app... 🚀
           </Heading>
           <Stack textAlign={"center"} align={"center"} mt={30}>
             <Text fontSize={18} color={"gray.500"} maxW={"3xl"}>
-              Sistema de estoque de produtos criado com <strong>Next.js</strong>{" "}
-              e <strong>Redux</strong>. <br />
-              Projeto criado para estudos, então sinta-se a vontade para baixar
-              o código no Github e usá-lo da melhor maneira que encontrar 😄
+              This app is created for the health conscious, for biohackers, or for anyone else who finds themselves with stock/inventory issues when it comes to
+              home management of vitamins, minerals, supplements, etc. <br /> <br /> Supplementory App will help you manage your inventory and track spending. <br />More features to come...
             </Text>
             <Flex w={"full"} alignItems="center" justifyContent="center">
               <Box boxSize="sm" mt={30}>
-                <Image src="about.svg" alt="Project Image" />
+                <Image src="about.jpeg" alt="Project Image" />
               </Box>
             </Flex>
           </Stack>

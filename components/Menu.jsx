@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { Flex, Heading, Avatar, Text, Icon } from "@chakra-ui/react";
-import { FiHome, FiCoffee, FiGithub } from "react-icons/fi";
+import { Flex, Heading, Text, Icon } from "@chakra-ui/react";
+import { FiHome, FiPlus, FiFolder, FiCircle } from "react-icons/fi";
 
 export default function Menu() {
   return (
@@ -9,7 +9,7 @@ export default function Menu() {
       w="15%"
       flexDir="column"
       alignItems="center"
-      backgroundColor="#020202"
+      backgroundColor="#85ABFF"
       color="#fff"
     >
       <Flex flexDir="column" justifyContent="space-between" h="100vh">
@@ -17,17 +17,18 @@ export default function Menu() {
           <Heading
             mt={50}
             mb={100}
-            fontSize="4xl"
+            ml={0}
+            fontSize="2xl"
             alignSelf="center"
             letterSpacing="tight"
           >
-            Stock.
+          Supplementory App
           </Heading>
-          <Flex flexDir="column" align="flex-start" justifyContent="center">
+          <Flex flexDir="column" align="flex-start" justifyContent="center" ml={10}>
             <Flex className="sidebar-items">
               <Link href="/">
                 <Flex>
-                  <Icon as={FiHome} fontSize="2xl" />
+                  <Icon as={FiHome} fontSize="2xl"/>
                   <Text color="#fff" cursor={"pointer"}>
                     Home
                   </Text>
@@ -37,30 +38,36 @@ export default function Menu() {
             <Flex className="sidebar-items">
               <Link href="/about">
                 <Flex>
-                  <Icon as={FiCoffee} fontSize="2xl" />
+                  <Icon as={FiCircle} fontSize="2xl" />
                   <Text color="#fff" cursor={"pointer"}>
-                    Sobre
+                    About
                   </Text>
                 </Flex>
               </Link>
             </Flex>
-            <a
-              href="https://github.com/iamdevmarcos/stock-management"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Flex className="sidebar-items">
-                <Icon as={FiGithub} fontSize="2xl" />
-                <Text color="#fff">Github</Text>
-              </Flex>
-            </a>
+            <Flex className="sidebar-items">
+              <Link href="/about">
+                <Flex>
+                  <Icon as={FiFolder} fontSize="2xl" />
+                  <Text color="#fff" cursor={"pointer"}>
+                    FAQ
+                  </Text>
+                </Flex>
+              </Link>
+            </Flex>
+            <Flex className="sidebar-items">
+              <Link href="/add">
+                <Flex>
+                  <Icon as={FiPlus}fontSize="2xl"/>
+                  <Text color="#fff" cursor={"pointer"}>
+                    Add / Modify
+                  </Text>
+                </Flex>
+              </Link>
+            </Flex>
           </Flex>
         </Flex>
-        <Flex flexDir="column" alignItems="center" mb={10} mt={5}>
-          <Avatar my={3} src="profile.png" />
-          <Text textAlign="center">Marcos Andre</Text>
-        </Flex>
       </Flex>
-    </Flex>
+  </Flex>
   );
 }

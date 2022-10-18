@@ -9,19 +9,19 @@ export const getCurrentDate = () => {
 export const formatCurrentMonth = (currentMonth) => {
   const [month, year] = currentMonth.split("-");
   const months = [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
-  return `${months[parseInt(month) - 1]} de ${year}`;
+  return `(added ${months[parseInt(month) - 1]} of ${year})`;
 };

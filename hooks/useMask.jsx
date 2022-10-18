@@ -1,8 +1,8 @@
 export const useMask = () => ({
-  toBRL: (value) => {
-    const formattedNumber = new Intl.NumberFormat("pt-BR", {
+  toUSD: (value) => {
+    const formattedNumber = new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "BRL",
+      currency: "USD",
     }).format(value);
 
     return formattedNumber;

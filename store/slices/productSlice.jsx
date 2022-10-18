@@ -13,7 +13,8 @@ const slice = createSlice({
         newState.push({
           id: uuid(),
           productName: action.payload.productName,
-          category: action.payload.category,
+          // supplyMod: action.payload.supplyMod,
+          productTotalAmtPurchased: action.payload.productTotalAmtPurchased ,
           totalValue: action.payload.totalValue,
           dateMade: action.payload.dateMade,
         });
@@ -25,7 +26,7 @@ const slice = createSlice({
       for (let i in state) {
         if (state[i].id === action.payload.id) {
           state[i].productName = action.payload.productName;
-          state[i].category = action.payload.category;
+          // state[i].supplyMod = action.payload.supplyMod;
           state[i].totalValue = action.payload.totalValue;
         }
       }

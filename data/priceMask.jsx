@@ -1,7 +1,7 @@
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 
 const priceMask = createNumberMask({
-  prefix: "R$ ",
+  prefix: "$",
   includeThousandsSeparator: true,
   thousandsSeparatorSymbol: ".",
   allowDecimal: true,

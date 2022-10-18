@@ -24,26 +24,33 @@ import priceMask from "../data/priceMask";
 
 export default function Add() {
   const [productName, setProductName] = useState("");
-  const [productCategory, setProductCategory] = useState("");
+  // const [productSupplyMod, setProductSupplyMod] = useState("");
   const [productValue, setProductValue] = useState("");
+  const [productTotalAmtPurchased, setProductTotalAmtPurchased] = useState ("");
+  // const [productQuantityConsumedPerDay, setProductQuantityConsumedPerDay] = useState ("");
+
 
   const dispatch = useDispatch();
   const currentDate = getCurrentDate();
   const router = useRouter();
 
   const handleAddProduct = () => {
-    if (productName !== "" && productCategory !== "" && productValue !== "") {
+    if (productName !== "" && productTotalAmtPurchased !== "" && productValue !== "") {
       dispatch(
         insert({
           productName,
-          category: productCategory,
+          // productSupplyMod: productSupplyMod,
+          productTotalAmtPurchased,
+          // productQuantityConsumedPerDay,
           totalValue: parseInt(productValue),
           dateMade: currentDate,
         })
+        
       );
       router.push("/");
+      console.log(productTotalAmtPurchased);
     } else {
-      alert("Preencha todos os campos!");
+      alert("Please fill in all fields.");
     }
   };
 
@@ -66,47 +73,37 @@ export default function Add() {
           background="#fff"
         >
           <Heading fontWeight="normal" mb={12} letterSpacing="tight">
-            Adicionar Nova Transação
+            Add a new supplement
           </Heading>
 
           <FormControl>
-            <FormLabel htmlFor="product-name">Nome do Produto:</FormLabel>
+            <FormLabel htmlFor="product-name">Name of supplement:</FormLabel>
             <Input
               id="product-name"
-              placeholder="ex: Macbook Pro M1"
+              placeholder="ex: Dr Danny's Dick Pills for Dudes' Dicks and Deep Dickin' "
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
+            />
+          </FormControl>
+          <br /> 
+          <FormControl>
+            <FormLabel htmlFor="total-amt">Total Amount Purchased:</FormLabel>
+            <Input
+              type="text"
+              id="total-amt"
+              placeholder="total number of pills/tablets/etc purchased"
+              value={productTotalAmtPurchased}
+              onChange={(e) => setProductTotalAmtPurchased(e.target.value)}
             />
           </FormControl>
           <br />
 
           <FormControl>
-            <FormLabel htmlFor="category">Categoria:</FormLabel>
-            <Select
-              id="category"
-              onChange={(e) => setProductCategory(e.target.value)}
-            >
-              <option></option>
-              <option>Venda</option>
-              <option>Compra</option>
-            </Select>
-          </FormControl>
-          <br />
-
-          <FormControl>
-            <FormLabel htmlFor="product-price">Valor:</FormLabel>
-            {/* <MaskedInput
-              mask={priceMask}
-              type="text"
-              id="product-price"
-              placeholder="Valor total da transação"
-              value={productValue}
-              onChange={(e) => setProductValue(e.target.value)}
-            /> */}
+            <FormLabel htmlFor="product-price">Price:</FormLabel>
             <Input
               type="text"
               id="product-price"
-              placeholder="Valor total da transação"
+              placeholder="Total Cost"
               value={productValue}
               onChange={(e) => setProductValue(e.target.value)}
             />
@@ -121,7 +118,7 @@ export default function Add() {
             type="submit"
             onClick={handleAddProduct}
           >
-            Cadastrar Transação
+            Create new supplement entry
           </Button>
         </Flex>
       </Flex>

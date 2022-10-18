@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Stock Management</title>
+        <title>Supplementory App</title>
       </Head>
       <Flex h="100vh" flexDir="row" overflow="hidden" maxW="2000px">
         {/* Column 1 - Menu */}

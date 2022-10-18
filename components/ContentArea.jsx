@@ -23,19 +23,24 @@ export default function ContentArea() {
   const mask = useMask();
 
   useEffect(() => {
-    let revenueCount = 0;
-    let expenseCount = 0;
+    // let revenueCount = 0;
+     let expenseCount = 0;
 
     // loop to complete values ​​in income and expense
+    // for (let i in list) {
+    //   if (list[i].supplyMod === "Add") {
+    //     revenueCount += list[i].totalValue;
+    //   } else {
+    //     expenseCount += list[i].totalValue;
+    //   }
+    // }
+
     for (let i in list) {
-      if (list[i].category === "Venda") {
-        revenueCount += list[i].totalValue;
-      } else {
-        expenseCount += list[i].totalValue;
-      }
+         if (list[i].productName == "")
+         expenseCount += list[i].totalValue;
     }
 
-    dispatch(setRevenue(revenueCount));
+    // dispatch(setRevenue(revenueCount));
     dispatch(setExpense(expenseCount));
   }, [list]);
 
@@ -46,81 +51,69 @@ export default function ContentArea() {
       flexDir="column"
       overflow="auto"
       minH="100vh"
-      background="#fff"
+      background="#F3F3F7"
     >
-      <Heading fontWeight="normal" mb={12} letterSpacing="tight">
-        Bem-vindo de volta,{" "}
-        <Flex fontWeight="bold" display="inline-flex">
-          Marcos 👋
-        </Flex>
-      </Heading>
       <Flex flexDir="row">
         <Flex
           flexDir="column"
           padding="5"
           marginRight={5}
-          background="#020202"
+          background="#ADC7FF"
           borderRadius={10}
           minW="150px"
         >
-          <Text color="#ccc" fontSize="sm">
-            Receitas
+          <Text color="#fff" fontSize="sm">
+            Total Spend
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            {mask.toBRL(finance.revenue)}
+            {mask.toUSD(finance.expense)}
           </Text>
+
         </Flex>
         <Flex
           flexDir="column"
           padding="5"
           marginRight={5}
-          background="#020202"
+          background="#ADC7FF"
           borderRadius={10}
           minW="150px"
         >
-          <Text color="#ccc" fontSize="sm">
-            Despesas
+          <Text color="#fff" fontSize="sm">
+            Monthly Spend
           </Text>
-          <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            {mask.toBRL(finance.expense)}
+          <Text color="#fff" fontWeight="bold" fontSize="2xl">
+            {mask.toUSD(finance.revenue)}
           </Text>
+
         </Flex>
         <Flex
           flexDir="column"
           padding="5"
           marginRight={5}
-          background="#020202"
+          background="#ADC7FF "
           borderRadius={10}
           minW="150px"
         >
-          <Text color="#ccc" fontSize="sm">
-            Balanço
+          <Text color="#fff" fontSize="sm">
+            Annual Spend
           </Text>
-          <Text
-            color={
-              finance.revenue - finance.expense >= 0 ? "#00ff00" : "#ff0000"
-            }
-            fontWeight="bold"
-            fontSize="2xl"
-          >
-            {mask.toBRL(finance.revenue - finance.expense)}
+          <Text color="#fff" fontWeight="bold" fontSize="2xl">
+            {mask.toUSD(finance.revenue)}
           </Text>
+
         </Flex>
       </Flex>
 
       <Flex justifyContent="space-between" mt={8}>
         <Flex align="flex-end">
           <Heading as="h2" size="lg" letterSpacing="tight">
-            Transações
+            Supplements
           </Heading>
-          <Text fontSize="small" color="gray" ml={4}>
-            {formatCurrentMonth(currentDate)}
-          </Text>
         </Flex>
         <Flex gap={10}>
           <Button onClick={() => dispatch(order())}>
             <Text fontWeight="normal" fontSize="16">
-              ORDENAR [A-Z]
+              List [A-Z]
             </Text>
           </Button>
           <Link href="/add">
@@ -134,7 +127,7 @@ export default function ContentArea() {
           {list.length === 0 && (
             <Flex mt={50}>
               <Text fontSize="25" m="auto">
-                Nenhuma transação efetuada 💵
+                Your home supplement inventory is empty!  You should get some...
               </Text>
             </Flex>
           )}

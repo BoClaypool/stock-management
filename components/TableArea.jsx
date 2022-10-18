@@ -13,10 +13,10 @@ export default function TableArea() {
     <Table variant="unstyled" mt={4}>
       <Thead>
         <Tr color="gray">
-          <Th>Nome da Transação</Th>
-          <Th>Categoria</Th>
-          <Th isNumeric>Valor</Th>
-          <Th isNumeric>Ações</Th>
+          <Th>Name of supplement</Th>
+          <Th>Total Amount of Supplement</Th>
+          <Th isNumeric>Cost</Th>
+          <Th isNumeric>Del / Edit</Th>
         </Tr>
       </Thead>
       <Tbody>

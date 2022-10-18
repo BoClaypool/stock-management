@@ -22,7 +22,7 @@ export default function TableItem({ data }) {
   const dispatch = useDispatch();
 
   const handleDelItem = () => {
-    if (confirm("Deletar este item")) {
+    if (confirm("Delete this supplement?")) {
       dispatch(del({ id: data.id }));
     }
   };
@@ -41,12 +41,14 @@ export default function TableItem({ data }) {
           </Flex>
         </Flex>
       </Td>
-      <Td>
-        <Flex>{data.category}</Flex>
-      </Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
-          {mask.toBRL(data.totalValue)}
+          {data.productTotalAmtPurchased}
+        </Text>
+      </Td> 
+      <Td isNumeric>
+        <Text fontWeight="bold" display="inline-table">
+          {mask.toUSD(data.totalValue)}
         </Text>
       </Td>
       <Td>
@@ -56,5 +58,5 @@ export default function TableItem({ data }) {
         <IconButton icon={<FiX />} onClick={handleDelItem} />
       </Td>
     </Tr>
-  );
+  );  
 }
